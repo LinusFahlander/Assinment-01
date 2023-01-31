@@ -40,22 +40,36 @@ internal class StartMenu
     {
         Console.Clear();
         Console.WriteLine("Skapa en kontakt:");
-
         Contact contact = new Contact();
+
         Console.Write("Ange Förnamn: ");
-        contact.FirstName = Console.ReadLine() ?? "";
+        string _FirstName = Console.ReadLine();
+        _FirstName = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(_FirstName!.ToLower());
+        contact.FirstName = _FirstName ?? "";
+
         Console.Write("Ange Efternamn: ");
-        contact.LastName = Console.ReadLine() ?? "";
+        string _LastName = Console.ReadLine();
+        _LastName = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(_LastName!.ToLower());
+        contact.LastName = _LastName ?? "";
+
         Console.Write("Ange Email: ");
         contact.Email = Console.ReadLine() ?? "";
+
         Console.Write("Ange Telefonnummer: ");
         contact.PhoneNumber = Console.ReadLine() ?? "";
+
         Console.Write("Ange Gatuadress: ");
-        contact.Adress = Console.ReadLine() ?? "";
+        string _Adress = Console.ReadLine();
+        _Adress = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(_Adress!.ToLower());
+        contact.Adress = _Adress ?? "";
+
         Console.Write("Ange Postnummer: ");
         contact.PostalCode = Console.ReadLine() ?? "";
+
         Console.Write("Ange Ort: ");
-        contact.City = Console.ReadLine() ?? "";
+        string _City = Console.ReadLine();
+        _City = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(_City!.ToLower());
+        contact.City = _City ?? "";
 
         contacts.Add(contact);
         file.Save(FilePath, JsonConvert.SerializeObject(contacts));
@@ -65,17 +79,29 @@ internal class StartMenu
     {
         Console.Clear();
         Console.WriteLine("Kontakter:");
-        contacts!.ForEach(contact => Console.WriteLine("Namn: " + contact.FirstName + " " + contact.LastName + " " + "Email: " + contact.Email));
-
+        Console.WriteLine("----------------------------------------------------------------------------------------------------------");
+        contacts!.ForEach(contact => Console.WriteLine("Namn: " + contact.FirstName + " " + contact.LastName + " \t " + "Email: " + contact.Email));
+        Console.WriteLine("----------------------------------------------------------------------------------------------------------");
         Console.WriteLine("Tryck valfri tangent för att återgå till Adressboken...");
         Console.ReadKey();
     }
     private void RunOptionThree()
     {
         Console.Clear();
-        Console.WriteLine("Visa en specifik kontakt: \n");
-        Console.Write("")
+        Console.WriteLine("Visa en specifik kontakt... \n");
+        Console.Write("Ange för och efternamn: ");
+        var contactName = Console.ReadLine();
+        contactName = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(contactName!.ToLower());
 
+        var contact = contacts.Find(x => x.FirstName + " " + x.LastName == contactName);
+        Console.WriteLine("Förnamn: " + contact!.FirstName);
+        Console.WriteLine("Efternamn: " + contact!.LastName);
+        Console.WriteLine("E-postadress: " + contact!.Email);
+        Console.WriteLine("Telefonnummer: " + contact!.PhoneNumber);
+        Console.WriteLine("Adress: " + contact!.Adress + ", " + contact!.PostalCode + " " + contact!.City);
+
+        Console.WriteLine("Tryck valfri tangent för att återgå till Adressboken...");
+        Console.ReadKey();
     }
     private void RunOptionFour()
     {
