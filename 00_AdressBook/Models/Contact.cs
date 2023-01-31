@@ -11,6 +11,5 @@ internal class Contact : IContact
     public string Adress { get; set; } = null!;
     public string PostalCode { get; set; } = null!;
     public string City { get; set; } = null!;
-
 }
 
