@@ -83,7 +83,7 @@ internal class StartMenu
         Console.WriteLine("----------------------------------------------------------------------------------------------------------");
         contacts!.ForEach(contact => Console.WriteLine("Namn: " + contact.FirstName + " " + contact.LastName + " \t " + "Email: " + contact.Email));
         Console.WriteLine("----------------------------------------------------------------------------------------------------------");
-        Console.WriteLine("Tryck valfri tangent för att återgå till Adressboken...");
+        Console.WriteLine("Tryck valfri tangent för att återgå till Huvudmenyn...");
         Console.ReadKey();
     }
     private void RunOptionThree()
@@ -101,7 +101,7 @@ internal class StartMenu
         Console.WriteLine("Telefonnummer: " + contact!.PhoneNumber);
         Console.WriteLine("Adress: " + contact!.Adress + ", " + contact!.PostalCode + " " + contact!.City);
         Console.WriteLine("----------------------------------------------------------------------------------------------------------");
-        Console.WriteLine("Tryck valfri tangent för att återgå till Adressboken...");
+        Console.WriteLine("Tryck valfri tangent för att återgå till Huvudmenyn...");
         Console.ReadKey();
     }
     private void RunOptionFour()
@@ -141,7 +141,7 @@ internal class StartMenu
             }
         } while (y == true);
 
-        Console.WriteLine("Tryck valfri tangent för att återgå till Adressboken...");
+        Console.WriteLine("Tryck valfri tangent för att återgå till Huvudmenyn...");
         Console.ReadKey();
     }
 }
