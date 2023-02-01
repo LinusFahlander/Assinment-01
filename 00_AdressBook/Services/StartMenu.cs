@@ -4,9 +4,9 @@ using System.Runtime.CompilerServices;
 
 namespace _00_AdressBook.Services;
 
-internal class StartMenu
+public class StartMenu
 {
-    private List<Contact> contacts = new List<Contact>();
+    public List<Contact> contacts = new List<Contact>();
     private FileService file = new FileService();
 
     public string FilePath { get; set; } = null!;

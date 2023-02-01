@@ -2,7 +2,7 @@
 
 namespace _00_AdressBook.Models;
 
-internal class Contact : IContact
+public class Contact : IContact
 {
     public string FirstName { get; set; } = null!;
     public string LastName { get; set; } = null!;
