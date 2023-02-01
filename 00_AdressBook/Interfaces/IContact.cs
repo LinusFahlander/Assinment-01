@@ -9,5 +9,4 @@ internal interface IContact
     string Adress { get; set; }
     string PostalCode { get; set; }
     string City { get; set; }
-
 }
